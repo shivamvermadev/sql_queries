@@ -1,0 +1,5 @@
+-- NORMALIZATION is a database design technique that reduces data redundancy and eliminates undesirable characteristics like Insertion, Update and Deletion Anomalies.
+-- The purpose of Normalization in SQL is to eliminate redundant (repetitive) data and ensure data is stored logically.
+-- first normal form : each cell should have single value and we cannot have repeated columns ie Each record needs to be unique.
+-- second normal form : Table should be in first normal form. Table should have single column primary key
+-- third normal form : Table should be in 2nf. Table should not have transitive functional dependency
