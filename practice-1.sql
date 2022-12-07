@@ -138,3 +138,7 @@ select * from orders o natural join customers c; -- in this query, DB engine wil
 select * from customers cross join products;
 -- or we can write above query as
 select * from customers, products;
+
+select * from products;
+-- query to get second max from table
+select p1.unit_price from products p1 where 2 = (select count(distinct unit_price) from products p2 where p1.unit_price <= p2.unit_price);
