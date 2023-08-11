@@ -75,6 +75,17 @@ select * from customers limit 3; -- only first 3 customers,
 select * from customers limit 6, 3; -- 6 is offset, it means skip initial 6 records and then pick next 3
 select * from customers order by points desc limit 3;
 
+---
+Join in mysql
+ Inner Join (Default Join): Returns only the rows where there is a match between the specified columns in both tables. If there's no match, the row is excluded from the result.
+ Left Join (or Left Outer Join): Returns all rows from the left table and the matching rows from the right table. If there's no match in the right table, the result will contain NULL values for the columns from the right table.
+ Right Join (or Right Outer Join): Similar to the left join, but it returns all rows from the right table and the matching rows from the left table. If there's no match in the left table, the result will contain NULL values for the columns from the left table.
+ Full Outer Join: Returns all rows from both tables, including matching rows as well as any rows with no match in either table. Columns without matches will have NULL values.
+ Self Join: A self join is used to combine rows from the same table. It's like joining a table with itself, often used when you have hierarchical or related data in a single table.
+ Cross Join (or Cartesian Join): Generates a combination of all rows from both tables. It doesn't require a condition, so it's also used to produce all possible combinations, which can lead to a large result set.
+ ---
+
+
 -- JOIN -- note INNER JOIN is JOIN by default in mysql
 select * from orders;
 select * from orders join customers on orders.customer_id = customers.customer_id;
@@ -142,3 +153,7 @@ select * from customers, products;
 select * from products;
 -- query to get second max from table
 select p1.unit_price from products p1 where 2 = (select count(distinct unit_price) from products p2 where p1.unit_price <= p2.unit_price);
+
+
+In SQL, the COALESCE function is used to return the first non-null expression among a list of expressions. It is often used when you want to replace a NULL value with an alternative non-null value. The syntax for the COALESCE function is as follows:
+SELECT emp_id, first_name, last_name, COALESCE(termination_date, 'Still Employed') AS termination_status FROM employees;
